@@ -2,8 +2,8 @@ package najah.edu;
 
 public class MyApplication {
 
-	public void ali () {
+	public void alisese () {
 		
-		System.out.println("hemll");
+		System.out.println("hhjhjemll");
 	}
 }
