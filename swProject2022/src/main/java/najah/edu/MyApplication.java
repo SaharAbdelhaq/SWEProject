@@ -4,6 +4,6 @@ public class MyApplication {
 
 	public void alisese () {
 		
-		System.out.println(" aya aya");
+		System.out.println("aya logout");
 	}
 }
