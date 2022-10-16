@@ -4,6 +4,6 @@ public class MyApplication {
 
 	public void alisese () {
 		
-		System.out.println("hhjhjemll");
+		System.out.println(" aya aya");
 	}
 }
