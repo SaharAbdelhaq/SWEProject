@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class addApointSteps {
+public class addApointSteps { 
 
 	/*Scenario: Add an appointment when admin is logged in                                                                                                                                                                          # uses_cases/AddApoint.feature:17
 	  Given these are the users we will but it in the table as a format User(Name,password,user_level,status) noting that user level 1 is Admin and user level 2 is a  user and status indicates whether user is logged in or not
