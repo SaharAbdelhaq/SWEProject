@@ -1,7 +1,5 @@
 package najah.edu;
 
-
-
 public class User {
 	
 private String username ;

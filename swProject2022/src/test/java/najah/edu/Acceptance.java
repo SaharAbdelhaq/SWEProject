@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 	//plugin = {"html:target/cucumber/wikipedia.html"},
 	monochrome=true,
 	snippets = SnippetType.CAMELCASE,
-	glue= {""}) 
+	glue= {"najah.edu"}, plugin= {"html: target/cucumber.html"}) 
 	//dryRun = true)
 
 //dryRun == ? strict

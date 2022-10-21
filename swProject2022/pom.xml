@@ -5,17 +5,18 @@
   <version>0.0.1-SNAPSHOT</version>
 
 <!-- Dependancy and blugins and goals -->
-
+	
 <properties>
      <maven.compiler.source>1.8</maven.compiler.source>
      <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 
 <dependencies>
+	
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-java</artifactId>
-    <version>7.5.0</version>
+    <version>7.3.4</version>
     <scope>test</scope>
 </dependency>
 
