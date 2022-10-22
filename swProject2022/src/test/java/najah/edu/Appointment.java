@@ -3,80 +3,81 @@ package najah.edu;
 import java.util.ArrayList;
 
 public class Appointment{
-	private String title;
-	private String author;
-	private String signature;
-	private String isbn;
-	private boolean borrowed;
+	private String Date;
+	private String Time;
+	private String Aid;
+	//private String isbn;
+	private boolean Booked;
 	private User inUser;
 	
 	private  ArrayList <Appointment> B1= new ArrayList <Appointment>();
 
 	
-	public Appointment(String title, String author, String signature, String isbn, boolean borrowed) {
+	public Appointment(String Date, String Time, String Aid, boolean Booked) {
 	
-		this.title = title;
-		this.author = author;
-		this.signature = signature;
-		this.isbn = isbn;
-		this.borrowed = borrowed;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public String getSignature() {
-		return signature;
-	}
-	public void setSignature(String signature) {
-		this.signature = signature;
-	}
-	public String getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-	public boolean isBorrowed() {
-		return borrowed;
-	}
-	public void setBorrowed(boolean borrowed) {
-		this.borrowed = borrowed;
+		this.Date = Date;
+		this.Time = Time;
+		this.Aid = Aid;
+		this.Booked = Booked;
 	}
 	
-	public void Addbook(ArrayList<User> u1,ArrayList<Appointment> b1,String string, String string2, String string3, String string4, String string5, String string6) {
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String Date) {
+		this.Date = Date;
+	}
+	
+	public String getTime() {
+		return Time;
+	}
+	public void setTime(String Time) {
+		this.Time = Time;
+	}
+	
+	public String getAid() {
+		return Aid;
+	}
+	public void setSignature(String Aid) {
+		this.Aid = Aid;
+	}
+	
+
+	public boolean isBooked() {
+		return Booked;
+	}
+	public void setBooked(boolean Booked) {
+		this.Booked = Booked;
+	}
+	
+	public void AddAppointment(ArrayList<User> u1,ArrayList<Appointment> b1,String string, String string2, String string3,String string4, String string5) {
 		
 		boolean check = false;
+		
 		for(int i=0;i<u1.size();i++) {
 			if(string.equals(u1.get(i).getUsername())&&u1.get(i).isAnAAdmin()) {
 				inUser=u1.get(i);
 				if(inUser.isStatus()) {
-					 check=checkisbn(string5);
+					 check=checkAid(string3);
 					if(check) {
-						b1.add(new Appointment(string2,string3,string4,string5,false));
+						b1.add(new Appointment(string,string2,string3,false));
 						break;
 					}
-						
+										
+					
 				}
-				}			
+			}			
 		}
 		
 	}
-	public boolean checkisbn(String ISBN) {
+	
+	
+	public boolean checkAid(String Aid) {
 		int sum=0;
 		int t;
 		int result;
-		String [] sp=ISBN.split("");
-		if(ISBN.length()==10) {
+		String [] sp=Aid.split("");
+		if(Aid.length()==10) {
 		  int m=10;
 		for (int i=0;i<sp.length;i++) {
 		  t=Integer.parseInt(sp[i]);
@@ -110,15 +111,13 @@ public class Appointment{
 				}
 			}		 				
 		}			
-
-		
+	
 	}
-	public void SearchTitle(ArrayList<Appointment> b1,String g) {
+	
+	public void SearchDate(ArrayList<Appointment> b1,String g) {
 		for(int i=0;i<b1.size();i++) {
 
-    	 if(b1.get(i).getTitle().contains(g)) {
-
-
+    	 if(b1.get(i).getDate().contains(g)) {
     	
     		 break;
     		
@@ -126,104 +125,91 @@ public class Appointment{
 
      }
 }
-public void SearchAuthor(ArrayList<Appointment> b1,String g) {
-	Appointment b2=new Appointment(null,g,null,null,true);
-ArrayList<Appointment> L1=new ArrayList<Appointment>();
-
-		for(int i=0;i<b1.size();i++) {
-
-    	 if(b1.get(i).getAuthor().contains(g)) {
-
-    		L1.add(b2);
-
-    			if(b2.CheckIfThereisMoreThanABook(L1.get(0).getTitle())) {
-    				b2.CheckIfThereisMoreThanABook(L1.get(0).getTitle());
-    				break;
-    			}
-
-    	
-    		 break;
-    		
-    		 
-    	 }
-
-
-     }
-}
-public void SearchIsbn(ArrayList<Appointment> b1,String g) {
+	
+//public void SearchAuthor(ArrayList<Appointment> b1,String g) {
+//	Appointment b2=new Appointment(null,g,null,null,true);
+//ArrayList<Appointment> L1=new ArrayList<Appointment>();
+//
+//		for(int i=0;i<b1.size();i++) {
+//
+//    	 if(b1.get(i).getAuthor().contains(g)) {
+//
+//    		L1.add(b2);
+//
+//    			if(b2.CheckIfThereisMoreThanABook(L1.get(0).getTitle())) {
+//    				b2.CheckIfThereisMoreThanABook(L1.get(0).getTitle());
+//    				break;
+//    			}
+//
+//    	
+//    		 break;
+//    		
+//    		 
+//    	 }
+//
+//
+//     }
+//}
+	
+public void SearchAid(ArrayList<Appointment> b1,String g) {
 	for(int i=0;i<b1.size();i++) {
-
-	    	 if(b1.get(i).getIsbn().contains(g)) {
-
-
-	    	
-	    		 break;
-	    		
+	    	 if(b1.get(i).getAid().contains(g)) {    	
+	    		 break;    		
 	    	 }
-
 	     }
 }
 
-public void SearchForBookWhileIn(ArrayList<Appointment> b1,ArrayList<User> U1,String g1,String g2,String g3) {
-
+public void SearchForAppointmentWhileIn(ArrayList<Appointment> b1,ArrayList<User> U1,String g1,String g2,String g3) {
 
 for(int i=0;i<U1.size();i++) {
-if(g1.equals(U1.get(i).getUsername())&&g2.equals(U1.get(i).getPassword())&&b1.get(1).getTitle().contains(g3)) {
+if(g1.equals(U1.get(i).getUsername())&&g2.equals(U1.get(i).getPassword())&&b1.get(1).getDate().contains(g3)) {
 break;
 }
 }
 
 }
 
-public void SearchForUnExsictBook(ArrayList<Appointment> b1,String g) {
-Appointment E1=new Appointment(g,null,null,null,false);
+public void SearchForUnExsictAppointment(ArrayList<Appointment> b1,String g) {
+Appointment E1=new Appointment(g,null,null,false);
 
 for(int i=0;i<b1.size();i++) {
-if(!(b1.get(i).getTitle().contains(g)&&b1.get(i).getAuthor().contains(g)&&b1.get(i).getIsbn().contains(g))) {
-if(!E1.getTitle().equals(b1.get(i).getTitle())) {
-E1.CheckWhenThereIsNoBook(g);
+if(!(b1.get(i).getDate().contains(g)&&b1.get(i).getTime().contains(g)&&b1.get(i).getAid().contains(g))) {
+if(!E1.getDate().equals(b1.get(i).getDate())) {
+E1.CheckWhenThereIsNoAppointment(g);
 
 }
-
 break;
 }
 }
-
-
-
-
 }
+
+
 public void searching_for_more_than_book(ArrayList<Appointment> b1,String g) {
-Appointment N1=new Appointment(g,null,null,null,true);
+Appointment N1=new Appointment(g,null,null,true);
 
 ArrayList<Appointment> L1=new ArrayList<Appointment>();
 for(int i=0;i<b1.size();i++) {
-if(b1.get(i).getTitle().contains(g)){
+if(b1.get(i).getDate().contains(g)){
 L1.add(N1);
 
-if(N1.CheckIfThereisMoreThanABook(L1.get(0).getTitle())) {
-	N1.CheckIfThereisMoreThanABook(L1.get(0).getTitle());
+if(N1.CheckIfThereisMoreThanAppointment(L1.get(0).getDate())) {
+	N1.CheckIfThereisMoreThanAppointment(L1.get(0).getDate());
 }
 }
 }
 
 }	
 
-public boolean CheckIfThereisAbook(String string) {
-if(string!=null) {
-   return true;
 
-}
-return false;
-}
-public boolean CheckIfThereisMoreThanABook(String string) {
+public boolean CheckIfThereisMoreThanAppointment(String string) {
 if(string!=null) {
 return true;
 
 }
 return false;
 }
-public boolean CheckWhenThereIsNoBook(String string) {
+
+public boolean CheckWhenThereIsNoAppointment(String string) {
 if(string!=null) {
 return false;
 
